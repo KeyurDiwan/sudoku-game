@@ -1,6 +1,7 @@
 html, body {
-    background-color: #FAFAFA;
+    background-color: rgb(196, 247, 247);
     min-width: 600px;
+    font-family: monospace;
     font-size: 1.5 em;
   }
 
@@ -15,21 +16,27 @@ html, body {
   }
 
   input {
-    color: #5e51d1;
+    color: rgba(26, 252, 5, 0.815);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 0;
     border: 0;
     text-align: center;
     width: 48px;
     height: 48px;
     font-size: 24px !important;
-    background-color: #FFFFFF;
+    background-color: whitesmoke;
     outline: none;
   }
 
-  input:disabled {
-    color:#000000;
-    font-weight: bold;
+  right-ans{
+      color: chartreuse;
   }
+
+  input:disabled {
+    color:black;
+    /* font-weight: bold; */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
   .row-2, .row-5 {border-bottom: 2px solid #000000;}
   .row-3, .row-6 {border-top: 2px solid #000000;}
@@ -41,7 +48,8 @@ html, body {
   .row-8 {border-bottom: 2px solid #000000;}
 
   .background-gray{
-    background-color: lightgray !important;
+  /* background-color: hotpink; */
+    background-color: rgb(222, 236, 240) !important;
   }
   
   .wrong-answer{
@@ -75,7 +83,12 @@ html, body {
   .footer{
     margin-right: auto;
     margin-left: auto;
-    padding-top: 2em;
+    font-size: 28px;
+   
+  }
+
+  #link{
+      
   }
 
   .score, .submit{
@@ -86,18 +99,26 @@ html, body {
 
   button:hover{
     cursor: pointer;
-    background-color: darkgray;
-    border: darkgray;
+    background-color: lightcyan;
+    border: 1px solid black;
   }
   button:disabled{
     cursor: default;
-    background-color: white;
-    border: black;
+    background-color: lightcyan;
+    color: black;
+    font-size: 16px;
+    padding: 7px;
+    margin: 10px;
+    border: 1px solid black;
+    /* border: black; */
   }
   select, button{
     font-size: 16px;
-    background-color: lightgray;
-    border: lightgray;
+    padding: 7px;
+    margin: 10px;
+    
+    background-color:  lightcyan ;
+    /* border: red; */
     text-align: center;
   }
 
@@ -107,6 +128,7 @@ html, body {
   }
 
   .levels, .newGame, .clearBoard{
+      /* background-color: red; */
     margin: 0.5em;
   }
 
@@ -122,4 +144,8 @@ html, body {
     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: wait;
+  }
+
+  #timer{
+      font-size: 50px;
   }

@@ -25,11 +25,12 @@
 
 
 
-### Prerequisites 
+## Prerequisites 
 * VS Code
 
 
 
+## [Click Here To Play Sudoku Game](https://vibrant-mcnulty-c4100a.netlify.app)
 
 
 

@@ -216,6 +216,9 @@ function check(){
             }
             else{
                 el.classList.remove("wrong-answer");
+               // el.classList.add("blue");
+               
+              // el.classList.add("right-ans");
             }
         }
     }

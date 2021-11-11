@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SUDOKU</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="sudoku.js"></script>
+    </head>
+    <div id="overlay"></div>
+    <body class = "container">
+        <div class = "action-container">
+          <div id = "score">
+            <h2 style="text-align: center;"> <span id="timer">0:00</span></h2>
+          </div>
+          <div class = "actions" id = "actions">
+            <div class = "levels">
+              <select name="level" id="level">
+                <option value="1" selected>easy</option>
+                <option value="2">medium</option>
+                <option value="3">hard</option>
+              </select>
+            </div>
+            <div class = "newGame">
+              <button type="button" onclick="getBoard()">new game</button>
+            </div>
+            <div class = "clearBoard">
+              <button id="clearButton" type="button" onclick = "clearboard()"" disabled>clear board</button>
+            </div>
+          </div>
+          <div class = "submit">
+            <button  id = "submitButton" disabled type = "button" onclick="check()"> submit </button>
+          </div>
+        </div>
+
+        <div class="board-container">
+            <table id="grid">
+      
+              <tr>
+                <td><input class="row-0 col-0 square-0" disabled></td>
+                <td><input class="row-0 col-1 square-0" disabled></td>
+                <td><input class="row-0 col-2 square-0" disabled></td>
+                
+                <td><input class="row-0 col-3 square-1" disabled></td>
+                <td><input class="row-0 col-4 square-1" disabled></td>
+                <td><input class="row-0 col-5 square-1" disabled></td>
+                
+                <td><input class="row-0 col-6 square-2" disabled></td>
+                <td><input class="row-0 col-7 square-2" disabled></td>
+                <td><input class="row-0 col-8 square-2" disabled></td>
+              </tr>
+      
+              <tr>
+                <td><input class="row-1 col-0 square-0" disabled></td>
+                <td><input class="row-1 col-1 square-0" disabled></td>
+                <td><input class="row-1 col-2 square-0" disabled></td>
+                
+                <td><input class="row-1 col-3 square-1" disabled></td>
+                <td><input class="row-1 col-4 square-1" disabled></td>
+                <td><input class="row-1 col-5 square-1" disabled></td>
+                
+                <td><input class="row-1 col-6 square-2" disabled></td>
+                <td><input class="row-1 col-7 square-2" disabled></td>
+                <td><input class="row-1 col-8 square-2" disabled></td>
+              </tr>
+      
+              <tr>          
+                <td><input class="row-2 col-0 square-0" disabled></td>
+                <td><input class="row-2 col-1 square-0" disabled></td>
+                <td><input class="row-2 col-2 square-0" disabled></td>
+              
+                <td><input class="row-2 col-3 square-1" disabled></td>
+                <td><input class="row-2 col-4 square-1" disabled></td>
+                <td><input class="row-2 col-5 square-1" disabled></td>
+              
+                <td><input class="row-2 col-6 square-2" disabled></td>
+                <td><input class="row-2 col-7 square-2" disabled></td>
+                <td><input class="row-2 col-8 square-2" disabled></td>
+              </tr>
+      
+              <tr>          
+                <td><input class="row-3 col-0 square-3" disabled></td>
+                <td><input class="row-3 col-1 square-3" disabled></td>
+                <td><input class="row-3 col-2 square-3" disabled></td>
+                
+                <td><input class="row-3 col-3 square-4" disabled></td>
+                <td><input class="row-3 col-4 square-4" disabled></td>
+                <td><input class="row-3 col-5 square-4" disabled></td>
+              
+                <td><input class="row-3 col-6 square-5" disabled></td>
+                <td><input class="row-3 col-7 square-5" disabled></td>
+                <td><input class="row-3 col-8 square-5" disabled></td>
+              </tr>
+      
+              <tr>          
+                <td><input class="row-4 col-0 square-3" disabled></td>
+                <td><input class="row-4 col-1 square-3" disabled></td>
+                <td><input class="row-4 col-2 square-3" disabled></td>
+                
+                <td><input class="row-4 col-3 square-4" disabled></td>
+                <td><input class="row-4 col-4 square-4" disabled></td>
+                <td><input class="row-4 col-5 square-4" disabled></td>
+                
+                <td><input class="row-4 col-6 square-5" disabled></td>
+                <td><input class="row-4 col-7 square-5" disabled></td>
+                <td><input class="row-4 col-8 square-5" disabled></td>
+              </tr>
+      
+              <tr>          
+                <td><input class="row-5 col-0 square-3" disabled></td>
+                <td><input class="row-5 col-1 square-3" disabled></td>
+                <td><input class="row-5 col-2 square-3" disabled></td>
+              
+                <td><input class="row-5 col-3 square-4" disabled></td>
+                <td><input class="row-5 col-4 square-4" disabled></td>
+                <td><input class="row-5 col-5 square-4" disabled></td>
+                
+                <td><input class="row-5 col-6 square-5" disabled></td>
+                <td><input class="row-5 col-7 square-5" disabled></td>
+                <td><input class="row-5 col-8 square-5" disabled></td>
+              </tr>
+      
+              <tr>          
+                <td><input class="row-6 col-0 square-6" disabled></td>
+                <td><input class="row-6 col-1 square-6" disabled></td>
+                <td><input class="row-6 col-2 square-6" disabled></td>
+                
+                <td><input class="row-6 col-3 square-7" disabled></td>
+                <td><input class="row-6 col-4 square-7" disabled></td>
+                <td><input class="row-6 col-5 square-7" disabled></td>
+                
+                <td><input class="row-6 col-6 square-8" disabled></td>
+                <td><input class="row-6 col-7 square-8" disabled></td>
+                <td><input class="row-6 col-8 square-8" disabled></td>
+              </tr>
+      
+              <tr>          
+                <td><input class="row-7 col-0 square-6" disabled></td>
+                <td><input class="row-7 col-1 square-6" disabled></td>
+                <td><input class="row-7 col-2 square-6" disabled></td>
+                
+                <td><input class="row-7 col-3 square-7" disabled></td>
+                <td><input class="row-7 col-4 square-7" disabled></td>
+                <td><input class="row-7 col-5 square-7" disabled></td>
+                
+                <td><input class="row-7 col-6 square-8" disabled></td>
+                <td><input class="row-7 col-7 square-8" disabled></td>
+                <td><input class="row-7 col-8 square-8" disabled></td>
+              </tr>
+      
+              <tr>          
+                <td><input class="row-8 col-0 square-6" disabled></td>
+                <td><input class="row-8 col-1 square-6" disabled></td>
+                <td><input class="row-8 col-2 square-6" disabled></td>
+                
+                <td><input class="row-8 col-3 square-7" disabled></td>
+                <td><input class="row-8 col-4 square-7" disabled></td>
+                <td><input class="row-8 col-5 square-7" disabled></td>
+                
+                <td><input class="row-8 col-6 square-8" disabled></td>
+                <td><input class="row-8 col-7 square-8" disabled></td>
+                <td><input class="row-8 col-8 square-8" disabled></td>
+              </tr>
+      
+            </table>
+      
+          </div>
+          <div class="footer">
+            made by <a href="https://www.linkedin.com/in/quangwdang/">Quang Dang</a>
+          </div>
+    </body>
+</html>
